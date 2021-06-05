@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Detail</title>
+<!-- bootstrap css -->
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+
+<!-- style css -->
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+
+</head>
+<body>
+	<!-- header section start -->
+	<div class="header_section">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-lg-3">
+					<div class="logo"><a href="index"><img src="{{url_for('static', filename='images/logo.png')}}"></a></div>
+				</div>
+				<div class="col-sm-6">
+					<nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav" style="text-align:right">
+                           <a class="nav-item nav-link" href="index">Home</a>
+							<a class="nav-item nav-link" href="profile">Profile</a>
+							<a class="nav-item nav-link" href="user_logout">LogOut</a>
+                        </div>
+                    </div>
+                    </nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- header section end -->
+	<div>
+		<form>
+			<input type="text" class="email-text" id="searchText" placeholder="Search by name" name="name">
+			<button class="submit_bt">Search</button>
+		</form>
+	  </div>
+	<!-- section PROMOTED start -->
+	<div class=" layout_padding promoted_sectipon">
+		<div class="container">
+			<div>
+				<center>
+					{% for item in data %}
+					<h1>Book title:{{item[2]}}</h1><br />
+					<h2>Author:{{item[1]}}</h2><br /><br />
+					<h2>Destription:{{item[3]}}</h2><br /><br />
+					<h2>Detail:{{item[4]}}</h2>
+					{% endfor %}		
+				  
+				</center>
+			</div>
+			
+	<!-- copyright section end -->
+
+
+
+
+
+
+
+
+
+      <!-- sidebar -->
+      <script>
+         $(document).ready(function(){
+         $(".fancybox").fancybox({
+         openEffect: "none",
+         closeEffect: "none"
+         });
+         
+         $(".zoom").hover(function(){
+         
+         $(this).addClass('transition');
+         }, function(){
+         
+         $(this).removeClass('transition');
+         });
+         });
+         
+      </script> 
+
+
+</body>
+</html>

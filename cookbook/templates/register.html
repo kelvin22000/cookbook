@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Register</title>
+<!-- bootstrap css -->
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+
+<!-- style css -->
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+
+</head>
+<body>
+	<!-- header section start -->
+	<div class="header_section">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-lg-3">
+					<div class="logo"><a href="index"><img src="{{url_for('static', filename='images/logo.png')}}"></a></div>
+				</div>
+				<div class="col-sm-6">
+					<nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav" style="text-align:right">
+                                             
+							<a class="nav-item nav-link" href="/">Login</a>
+							<a class="nav-item nav-link" href="register">Register</a>
+                        </div>
+                    </div>
+                    </nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- header section end -->
+  <div>
+    <form>
+        <input type="text" class="email-text" id="searchText" placeholder="Search by name" name="name">
+        <button class="submit_bt">Search</button>
+    </form>
+  </div>
+  {% block content %}
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {% block page_content %}{% endblock %}
+</div>
+{% endblock %}
+	<!-- contact section start -->
+    <div class="contact_section layout_padding">
+    	<div class="container-fluid">
+    		<div class="row">
+    			<div class="col-md-6">
+                    <div class="input_main">
+                       <div class="container">
+                          <form action="register" method="post">                            
+                            <div class="form-group">
+                              <input type="text" class="email-bt" placeholder="Username" name="username">
+                            </div>
+                            <div class="form-group">
+                              <input type="password" class="email-bt" placeholder="Password" name="password">
+                            </div>
+                            <div class="form-group">
+                              <center><button class="submit_bt">Register</button></center>
+                            </div>
+                          </form>
+                       </div> 
+                    </div>
+                </div>
+    		</div>
+    	</div>
+    </div>
+	<!-- contact section end -->
+
+	<!-- copyright section end -->
+      
+      <script>
+         $(document).ready(function(){
+         $(".fancybox").fancybox({
+         openEffect: "none",
+         closeEffect: "none"
+         });
+         
+         $(".zoom").hover(function(){
+         
+         $(this).addClass('transition');
+         }, function(){
+         
+         $(this).removeClass('transition');
+         });
+         });
+         
+      </script> 
+    
+</body>
+</html>
